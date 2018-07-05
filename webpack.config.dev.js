@@ -17,7 +17,7 @@ export default {
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
-        debug: true,
+        debug: false,
         noInfo: true,
       })
   ],
