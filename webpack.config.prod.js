@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash';
 
 const env = process.env.NODE_ENV;
 
@@ -14,9 +15,10 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   plugins: [
+    new WebpackMd5Hash(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       minify: {
