@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const env = process.env.NODE_ENV;
 
@@ -18,6 +19,10 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[chunkhash].css',
+      chunkFilename: '[id].css'
+    }),
     new WebpackMd5Hash(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -69,7 +74,6 @@ export default {
   module: {
     rules: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /\.css$/, loaders: ['style-loader','css-loader']}
-    ]
+      {test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader}, 'css-loader']}]
   }
 }
