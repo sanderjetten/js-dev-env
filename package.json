@@ -23,6 +23,10 @@
   },
   "author": "Sander Jetten",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanderjetten/js-dev-env.git"
+  },
   "dependencies": {
     "whatwg-fetch": "2.0.4"
   },
