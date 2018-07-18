@@ -63,3 +63,7 @@ src/api/db.json
 dist/bundle.js
 dist/bundle.js.map
 dist/index.html
+dist/vendor.js
+dist/vendor.js.map
+dist/main.js.map
+dist/main.js

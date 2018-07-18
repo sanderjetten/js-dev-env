@@ -7,14 +7,14 @@ const env = process.env.NODE_ENV;
 export default {
   mode: env || 'development',
   devtool: 'source-map',
-  entry: [
-    path.resolve(__dirname, 'src/index')
-  ],
+  entry: {
+    main: path.resolve(__dirname, 'src/index')
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -39,7 +39,30 @@ export default {
       })
   ],
   optimization: {
-    minimize: true
+    minimize: true,
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 2,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          enforce: true,
+          chunks: 'all'
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
   module: {
     rules: [
