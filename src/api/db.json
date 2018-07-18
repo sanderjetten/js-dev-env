@@ -1,28 +1,3 @@
 {
-  "users": [
-    {
-      "id": 33677542,
-      "firstName": "Ephraim",
-      "lastName": "Dach",
-      "email": "Norma38@yahoo.com"
-    },
-    {
-      "id": 46034073,
-      "firstName": "Ransom",
-      "lastName": "Thompson",
-      "email": "Ezequiel_Larson@yahoo.com"
-    },
-    {
-      "id": 31018241,
-      "firstName": "Chad",
-      "lastName": "Rath",
-      "email": "Frederik19@yahoo.com"
-    },
-    {
-      "id": 31169432,
-      "firstName": "Cristian",
-      "lastName": "Williamson",
-      "email": "Juston.Corkery@yahoo.com"
-    }
-  ]
+  "users": []
 }
