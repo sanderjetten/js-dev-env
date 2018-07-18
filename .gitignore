@@ -62,3 +62,4 @@ typings/
 src/api/db.json
 dist/bundle.js
 dist/bundle.js.map
+dist/index.html

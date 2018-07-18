@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const env = process.env.NODE_ENV;
 
@@ -16,16 +17,30 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      inject: true
+    }),
     new webpack.LoaderOptionsPlugin({
         debug: false,
         noInfo: true,
-      }),
-
-    // Minify JS
-    new webpack.LoaderOptionsPlugin({
-           minimize: true
-         })
-    ],
+      })
+  ],
+  optimization: {
+    minimize: true
+  },
   module: {
     rules: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},

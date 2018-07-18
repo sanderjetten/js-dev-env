@@ -23,7 +23,7 @@ webpack(webpackConfig).run((err, status) => {
       jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)));
     }
 
-    console.log(`Webpack stats: ${jsonStats}`);
+    console.log(`Webpack stats: ${status.toString()}`);
 
     // build succeeded
     console.log(chalk.green('App build and written to /dist! Jeej'));
