@@ -20,12 +20,12 @@ export default {
         debug: false,
         noInfo: true,
       }),
-    // Eliminate duplicate packages when generating bundle
-    new webpack.optimize.DedupePlugin(),
-    
+
     // Minify JS
-    new webpack.optimize.UglifyJsPlugin()
-  ],
+    new webpack.LoaderOptionsPlugin({
+           minimize: true
+         })
+    ],
   module: {
     rules: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},

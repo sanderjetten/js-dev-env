@@ -60,3 +60,5 @@ typings/
 # next.js build output
 .next
 src/api/db.json
+dist/bundle.js
+dist/bundle.js.map
